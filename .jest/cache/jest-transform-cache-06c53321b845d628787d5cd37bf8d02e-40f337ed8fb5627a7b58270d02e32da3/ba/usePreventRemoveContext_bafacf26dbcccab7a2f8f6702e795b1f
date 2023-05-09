@@ -1,0 +1,78 @@
+d0d99b0aec87afdf6a67f9c62cb15188
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = usePreventRemoveContext;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _PreventRemoveContext = _interopRequireDefault(require("./PreventRemoveContext"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== "function") return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache(nodeInterop);
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+function usePreventRemoveContext() {
+  var value = React.useContext(_PreventRemoveContext.default);
+
+  if (value == null) {
+    throw new Error("Couldn't find the prevent remove context. Is your component inside NavigationContent?");
+  }
+
+  return value;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOztBQUVBOztBQUEwRDtFQUFBO0lBQUFBO0VBQUE7QUFBQTs7QUFBQTtFQUFBO0VBQUE7RUFBQTtFQUFBO0lBQUE7RUFBQTtBQUFBOztBQUFBO0VBQUE7SUFBQTtFQUFBOztFQUFBO0lBQUE7TUFBQUE7SUFBQTtFQUFBOztFQUFBOztFQUFBO0lBQUE7RUFBQTs7RUFBQTtFQUFBOztFQUFBO0lBQUE7TUFBQTs7TUFBQTtRQUFBQztNQUFBO1FBQUFDO01BQUE7SUFBQTtFQUFBOztFQUFBQTs7RUFBQTtJQUFBQztFQUFBOztFQUFBO0FBQUE7O0FBRTNDLFNBQVNDLHVCQUFULEdBQW1DO0VBQ2hELElBQU1DLEtBQUssR0FBR0MsS0FBSyxDQUFDQyxVQUFORCxDQUFpQkUsNkJBQWpCRixDQUFkOztFQUVBLElBQUlELEtBQUssSUFBSSxJQUFiLEVBQW1CO0lBQ2pCLE1BQU0sSUFBSUksS0FBSixDQUNKLHVGQURJLENBQU47RUFHRjs7RUFFQSxPQUFPSixLQUFQO0FBQ0YiLCJuYW1lcyI6WyJkZWZhdWx0IiwiT2JqZWN0IiwibmV3T2JqIiwiY2FjaGUiLCJ1c2VQcmV2ZW50UmVtb3ZlQ29udGV4dCIsInZhbHVlIiwiUmVhY3QiLCJ1c2VDb250ZXh0IiwiUHJldmVudFJlbW92ZUNvbnRleHQiLCJFcnJvciJdLCJzb3VyY2VSb290IjoiLi4vLi4vc3JjIiwic291cmNlcyI6WyJ1c2VQcmV2ZW50UmVtb3ZlQ29udGV4dC50c3giXSwic291cmNlc0NvbnRlbnQiOltudWxsXX0=

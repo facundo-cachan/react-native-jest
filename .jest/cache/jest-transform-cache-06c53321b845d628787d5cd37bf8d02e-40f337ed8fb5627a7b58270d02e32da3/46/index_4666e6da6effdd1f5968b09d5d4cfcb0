@@ -1,0 +1,29 @@
+ac12433df54775d7608aea773ca75c14
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "NativeStackView", {
+  enumerable: true,
+  get: function get() {
+    return _NativeStackView.default;
+  }
+});
+Object.defineProperty(exports, "createNativeStackNavigator", {
+  enumerable: true,
+  get: function get() {
+    return _createNativeStackNavigator.default;
+  }
+});
+
+var _createNativeStackNavigator = _interopRequireDefault(require("./navigators/createNativeStackNavigator"));
+
+var _NativeStackView = _interopRequireDefault(require("./views/NativeStackView"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBR0E7O0FBS0E7O0FBQXFFO0VBQUE7SUFBQUE7RUFBQTtBQUFBIiwibmFtZXMiOlsiZGVmYXVsdCJdLCJzb3VyY2VSb290IjoiLi4vLi4vc3JjIiwic291cmNlcyI6WyJpbmRleC50c3giXSwic291cmNlc0NvbnRlbnQiOltudWxsXX0=

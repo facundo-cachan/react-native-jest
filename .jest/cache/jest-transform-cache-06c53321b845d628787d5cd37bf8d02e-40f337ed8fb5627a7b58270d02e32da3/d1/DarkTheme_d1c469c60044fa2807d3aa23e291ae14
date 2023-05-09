@@ -1,0 +1,21 @@
+28075c0ce30ed370f6ce140d4b86733f
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var DarkTheme = {
+  dark: true,
+  colors: {
+    primary: 'rgb(10, 132, 255)',
+    background: 'rgb(1, 1, 1)',
+    card: 'rgb(18, 18, 18)',
+    text: 'rgb(229, 229, 231)',
+    border: 'rgb(39, 39, 41)',
+    notification: 'rgb(255, 69, 58)'
+  }
+};
+var _default = DarkTheme;
+exports.default = _default;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7O0FBRUEsSUFBTUEsU0FBZ0IsR0FBRztFQUN2QkMsSUFBSSxFQUFFLElBRGlCO0VBRXZCQyxNQUFNLEVBQUU7SUFDTkMsT0FBTyxFQUFFLG1CQURIO0lBRU5DLFVBQVUsRUFBRSxjQUZOO0lBR05DLElBQUksRUFBRSxpQkFIQTtJQUlOQyxJQUFJLEVBQUUsb0JBSkE7SUFLTkMsTUFBTSxFQUFFLGlCQUxGO0lBTU5DLFlBQVksRUFBRTtFQU5SO0FBRmUsQ0FBekI7QUFVRSxlQUVhUixTQUZiO0FBRXNCUyIsIm5hbWVzIjpbIkRhcmtUaGVtZSIsImRhcmsiLCJjb2xvcnMiLCJwcmltYXJ5IiwiYmFja2dyb3VuZCIsImNhcmQiLCJ0ZXh0IiwiYm9yZGVyIiwibm90aWZpY2F0aW9uIiwiZXhwb3J0cyJdLCJzb3VyY2VSb290IjoiLi4vLi4vLi4vc3JjIiwic291cmNlcyI6WyJ0aGVtaW5nL0RhcmtUaGVtZS50c3giXSwic291cmNlc0NvbnRlbnQiOltudWxsXX0=

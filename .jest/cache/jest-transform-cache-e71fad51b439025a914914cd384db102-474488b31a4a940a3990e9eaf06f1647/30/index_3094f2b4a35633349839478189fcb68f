@@ -1,0 +1,15 @@
+eca31efc87b8d06584fa1f09503740aa
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+Object.defineProperty(exports, "Text", {
+  enumerable: true,
+  get: function get() {
+    return _text.default;
+  }
+});
+var _text = _interopRequireDefault(require("./text"));
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJfdGV4dCIsIl9pbnRlcm9wUmVxdWlyZURlZmF1bHQiLCJyZXF1aXJlIl0sInNvdXJjZXMiOlsiaW5kZXgudHMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFRleHQgZnJvbSAnLi90ZXh0J1xuXG5pbXBvcnQgeyBQcm9wcyBhcyBUZXh0UHJvcHMgfSBmcm9tICcuL3RleHQvaW50ZXJmYWNlcydcblxuZXhwb3J0IHR5cGUgeyBUZXh0UHJvcHMgfVxuZXhwb3J0IHsgVGV4dCB9XG5cbiJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBQUEsSUFBQUEsS0FBQSxHQUFBQyxzQkFBQSxDQUFBQyxPQUFBIn0=

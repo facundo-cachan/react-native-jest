@@ -1,0 +1,1 @@
+{"version":3,"mappings":";;;;;;;AAAA;;AAAiD;EAAA;IAAAA;EAAA;AAAA;;AAEjD,IAAMC,mBAAmB,GAAG,8BAC1B,qBAD0B,EAE1BC,SAF0B,CAA5B;AAGE,eAEaD,mBAFb;AAEgCE","names":["default","HeaderHeightContext","undefined","exports"],"sourceRoot":"../../../src","sources":["Header/HeaderHeightContext.tsx"],"sourcesContent":[null]}

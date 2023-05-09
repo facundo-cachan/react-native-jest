@@ -1,0 +1,19 @@
+1e1987848fed237d98c17d8193f67cc1
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = getFocusedRouteNameFromRoute;
+
+var _useRouteCache = require("./useRouteCache");
+
+function getFocusedRouteNameFromRoute(route) {
+  var _route$_useRouteCache, _state$index;
+
+  var state = (_route$_useRouteCache = route[_useRouteCache.CHILD_STATE]) != null ? _route$_useRouteCache : route.state;
+  var params = route.params;
+  var routeName = state ? state.routes[(_state$index = state.index) != null ? _state$index : typeof state.type === 'string' && state.type !== 'stack' ? 0 : state.routes.length - 1].name : typeof (params === null || params === void 0 ? void 0 : params.screen) === 'string' ? params.screen : undefined;
+  return routeName;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUVBOztBQUVlLFNBQVNBLDRCQUFULENBQ2JDLEtBRGEsRUFFTztFQUFBOztFQUVwQixJQUFNQyxLQUFLLDRCQUFHRCxLQUFLLENBQUNFLDBCQUFELENBQVIsb0NBQXlCRixLQUFLLENBQUNDLEtBQTFDO0VBQ0EsSUFBTUUsTUFBTSxHQUFHSCxLQUFLLENBQUNHLE1BQXJCO0VBRUEsSUFBTUMsU0FBUyxHQUFHSCxLQUFLLEdBRW5CQSxLQUFLLENBQUNJLE1BQU5KLGlCQUdFQSxLQUFLLENBQUNLLEtBSFJMLDJCQUlLLE9BQU9BLEtBQUssQ0FBQ00sSUFBYixLQUFzQixRQUF0QixJQUFrQ04sS0FBSyxDQUFDTSxJQUFOTixLQUFlLE9BQWpELEdBQ0csQ0FESCxHQUVHQSxLQUFLLENBQUNJLE1BQU5KLENBQWFPLE1BQWJQLEdBQXNCLENBTjlCQSxFQU9FUSxJQVRpQixHQVdyQixRQUFPTixNQUFNLFNBQU5BLFVBQU0sV0FBTkEsR0FBTSxNQUFOQSxTQUFNLENBQUVPLE1BQWYsTUFBMEIsUUFBMUIsR0FDRVAsTUFBTSxDQUFDTyxNQURULEdBRUVDLFNBYko7RUFlQSxPQUFPUCxTQUFQO0FBQ0YiLCJuYW1lcyI6WyJnZXRGb2N1c2VkUm91dGVOYW1lRnJvbVJvdXRlIiwicm91dGUiLCJzdGF0ZSIsIkNISUxEX1NUQVRFIiwicGFyYW1zIiwicm91dGVOYW1lIiwicm91dGVzIiwiaW5kZXgiLCJ0eXBlIiwibGVuZ3RoIiwibmFtZSIsInNjcmVlbiIsInVuZGVmaW5lZCJdLCJzb3VyY2VSb290IjoiLi4vLi4vc3JjIiwic291cmNlcyI6WyJnZXRGb2N1c2VkUm91dGVOYW1lRnJvbVJvdXRlLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6W251bGxdfQ==

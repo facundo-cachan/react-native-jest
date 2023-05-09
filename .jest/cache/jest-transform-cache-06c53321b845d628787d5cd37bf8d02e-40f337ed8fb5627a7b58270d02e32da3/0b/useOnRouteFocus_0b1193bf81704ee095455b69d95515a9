@@ -1,0 +1,91 @@
+a5b84bfa403692b65fa5208f4586f898
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = useOnRouteFocus;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _NavigationBuilderContext = _interopRequireDefault(require("./NavigationBuilderContext"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== "function") return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache(nodeInterop);
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+function useOnRouteFocus(_ref) {
+  var router = _ref.router,
+      getState = _ref.getState,
+      sourceRouteKey = _ref.key,
+      setState = _ref.setState;
+
+  var _React$useContext = React.useContext(_NavigationBuilderContext.default),
+      onRouteFocusParent = _React$useContext.onRouteFocus;
+
+  return React.useCallback(function (key) {
+    var state = getState();
+    var result = router.getStateForRouteFocus(state, key);
+
+    if (result !== state) {
+      setState(result);
+    }
+
+    if (onRouteFocusParent !== undefined && sourceRouteKey !== undefined) {
+      onRouteFocusParent(sourceRouteKey);
+    }
+  }, [getState, onRouteFocusParent, router, setState, sourceRouteKey]);
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUtBOztBQUVBOztBQUFrRTtFQUFBO0lBQUFBO0VBQUE7QUFBQTs7QUFBQTtFQUFBO0VBQUE7RUFBQTtFQUFBO0lBQUE7RUFBQTtBQUFBOztBQUFBO0VBQUE7SUFBQTtFQUFBOztFQUFBO0lBQUE7TUFBQUE7SUFBQTtFQUFBOztFQUFBOztFQUFBO0lBQUE7RUFBQTs7RUFBQTtFQUFBOztFQUFBO0lBQUE7TUFBQTs7TUFBQTtRQUFBQztNQUFBO1FBQUFDO01BQUE7SUFBQTtFQUFBOztFQUFBQTs7RUFBQTtJQUFBQztFQUFBOztFQUFBO0FBQUE7O0FBY25ELFNBQVNDLGVBQVQsQ0FBd0JDLElBQXhCLEVBS0s7RUFBQSxJQUpsQkMsTUFJa0IsR0FBRkQsSUFBRSxDQUpsQkMsTUFJa0I7RUFBQSxJQUhsQkMsUUFHa0IsR0FBRkYsSUFBRSxDQUhsQkUsUUFHa0I7RUFBQSxJQUZiQyxjQUVhLEdBQUZILElBQUUsQ0FGbEJJLEdBRWtCO0VBQUEsSUFEbEJDLFFBQ2tCLEdBQUZMLElBQUUsQ0FEbEJLLFFBQ2tCOztFQUNsQix3QkFBNkNDLEtBQUssQ0FBQ0MsVUFBTkQsQ0FDM0NFLGlDQUQyQ0YsQ0FBN0M7RUFBQSxJQUFzQkcsa0JBQXRCLHFCQUFRQyxZQUFSOztFQUlBLE9BQU9KLEtBQUssQ0FBQ0ssV0FBTkwsQ0FDSkYsYUFBVyxFQUFLO0lBQ2YsSUFBTVEsS0FBSyxHQUFHVixRQUFRLEVBQXRCO0lBQ0EsSUFBTVcsTUFBTSxHQUFHWixNQUFNLENBQUNhLHFCQUFQYixDQUE2QlcsS0FBN0JYLEVBQW9DRyxHQUFwQ0gsQ0FBZjs7SUFFQSxJQUFJWSxNQUFNLEtBQUtELEtBQWYsRUFBc0I7TUFDcEJQLFFBQVEsQ0FBQ1EsTUFBRCxDQUFSUjtJQUNGOztJQUVBLElBQUlJLGtCQUFrQixLQUFLTSxTQUF2Qk4sSUFBb0NOLGNBQWMsS0FBS1ksU0FBM0QsRUFBc0U7TUFDcEVOLGtCQUFrQixDQUFDTixjQUFELENBQWxCTTtJQUNGO0VBQ0QsQ0FaSUgsRUFhTCxDQUFDSixRQUFELEVBQVdPLGtCQUFYLEVBQStCUixNQUEvQixFQUF1Q0ksUUFBdkMsRUFBaURGLGNBQWpELENBYktHLENBQVA7QUFlRiIsIm5hbWVzIjpbImRlZmF1bHQiLCJPYmplY3QiLCJuZXdPYmoiLCJjYWNoZSIsInVzZU9uUm91dGVGb2N1cyIsIl9yZWYiLCJyb3V0ZXIiLCJnZXRTdGF0ZSIsInNvdXJjZVJvdXRlS2V5Iiwia2V5Iiwic2V0U3RhdGUiLCJSZWFjdCIsInVzZUNvbnRleHQiLCJOYXZpZ2F0aW9uQnVpbGRlckNvbnRleHQiLCJvblJvdXRlRm9jdXNQYXJlbnQiLCJvblJvdXRlRm9jdXMiLCJ1c2VDYWxsYmFjayIsInN0YXRlIiwicmVzdWx0IiwiZ2V0U3RhdGVGb3JSb3V0ZUZvY3VzIiwidW5kZWZpbmVkIl0sInNvdXJjZVJvb3QiOiIuLi8uLi9zcmMiLCJzb3VyY2VzIjpbInVzZU9uUm91dGVGb2N1cy50c3giXSwic291cmNlc0NvbnRlbnQiOltudWxsXX0=

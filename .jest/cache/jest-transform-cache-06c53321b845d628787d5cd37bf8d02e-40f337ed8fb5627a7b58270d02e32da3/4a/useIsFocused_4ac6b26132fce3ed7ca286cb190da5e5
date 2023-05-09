@@ -1,0 +1,102 @@
+25bb0a182fbb37f78e994c6096bcd93d
+"use strict";
+
+var _interopRequireDefault2 = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _slicedToArray2 = _interopRequireDefault2(require("@babel/runtime/helpers/slicedToArray"));
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = useIsFocused;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _useNavigation = _interopRequireDefault(require("./useNavigation"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== "function") return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache(nodeInterop);
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+function useIsFocused() {
+  var navigation = (0, _useNavigation.default)();
+
+  var _ref = (0, React.useState)(navigation.isFocused),
+      _ref2 = (0, _slicedToArray2.default)(_ref, 2),
+      isFocused = _ref2[0],
+      setIsFocused = _ref2[1];
+
+  var valueToReturn = navigation.isFocused();
+
+  if (isFocused !== valueToReturn) {
+    setIsFocused(valueToReturn);
+  }
+
+  React.useEffect(function () {
+    var unsubscribeFocus = navigation.addListener('focus', function () {
+      return setIsFocused(true);
+    });
+    var unsubscribeBlur = navigation.addListener('blur', function () {
+      return setIsFocused(false);
+    });
+    return function () {
+      unsubscribeFocus();
+      unsubscribeBlur();
+    };
+  }, [navigation]);
+  React.useDebugValue(valueToReturn);
+  return valueToReturn;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFBQTs7QUFHQTs7QUFBNEM7RUFBQTtJQUFBQTtFQUFBO0FBQUE7O0FBQUE7RUFBQTtFQUFBO0VBQUE7RUFBQTtJQUFBO0VBQUE7QUFBQTs7QUFBQTtFQUFBO0lBQUE7RUFBQTs7RUFBQTtJQUFBO01BQUFBO0lBQUE7RUFBQTs7RUFBQTs7RUFBQTtJQUFBO0VBQUE7O0VBQUE7RUFBQTs7RUFBQTtJQUFBO01BQUE7O01BQUE7UUFBQUM7TUFBQTtRQUFBQztNQUFBO0lBQUE7RUFBQTs7RUFBQUE7O0VBQUE7SUFBQUM7RUFBQTs7RUFBQTtBQUFBOztBQU03QixTQUFTQyxZQUFULEdBQWlDO0VBQzlDLElBQU1DLFVBQVUsR0FBRyw2QkFBbkI7O0VBQ0EsV0FBa0Msb0JBQVNBLFVBQVUsQ0FBQ0MsU0FBcEIsQ0FBbEM7RUFBQTtFQUFBLElBQU9BLFNBQVA7RUFBQSxJQUFrQkMsWUFBbEI7O0VBRUEsSUFBTUMsYUFBYSxHQUFHSCxVQUFVLENBQUNDLFNBQVhELEVBQXRCOztFQUVBLElBQUlDLFNBQVMsS0FBS0UsYUFBbEIsRUFBaUM7SUFNL0JELFlBQVksQ0FBQ0MsYUFBRCxDQUFaRDtFQUNGOztFQUVBRSxLQUFLLENBQUNDLFNBQU5ELENBQWdCLFlBQU07SUFDcEIsSUFBTUUsZ0JBQWdCLEdBQUdOLFVBQVUsQ0FBQ08sV0FBWFAsQ0FBdUIsT0FBdkJBLEVBQWdDO01BQUEsT0FDdkRFLFlBQVksQ0FBQyxJQUFELENBRDJDO0lBQUEsQ0FBaENGLENBQXpCO0lBSUEsSUFBTVEsZUFBZSxHQUFHUixVQUFVLENBQUNPLFdBQVhQLENBQXVCLE1BQXZCQSxFQUErQjtNQUFBLE9BQ3JERSxZQUFZLENBQUMsS0FBRCxDQUR5QztJQUFBLENBQS9CRixDQUF4QjtJQUlBLE9BQU8sWUFBTTtNQUNYTSxnQkFBZ0I7TUFDaEJFLGVBQWU7SUFDaEIsQ0FIRDtFQUlELENBYkRKLEVBYUcsQ0FBQ0osVUFBRCxDQWJISTtFQWVBQSxLQUFLLENBQUNLLGFBQU5MLENBQW9CRCxhQUFwQkM7RUFFQSxPQUFPRCxhQUFQO0FBQ0YiLCJuYW1lcyI6WyJkZWZhdWx0IiwiT2JqZWN0IiwibmV3T2JqIiwiY2FjaGUiLCJ1c2VJc0ZvY3VzZWQiLCJuYXZpZ2F0aW9uIiwiaXNGb2N1c2VkIiwic2V0SXNGb2N1c2VkIiwidmFsdWVUb1JldHVybiIsIlJlYWN0IiwidXNlRWZmZWN0IiwidW5zdWJzY3JpYmVGb2N1cyIsImFkZExpc3RlbmVyIiwidW5zdWJzY3JpYmVCbHVyIiwidXNlRGVidWdWYWx1ZSJdLCJzb3VyY2VSb290IjoiLi4vLi4vc3JjIiwic291cmNlcyI6WyJ1c2VJc0ZvY3VzZWQudHN4Il0sInNvdXJjZXNDb250ZW50IjpbbnVsbF19

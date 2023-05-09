@@ -1,0 +1,81 @@
+{
+  "buildOnSave": false,
+  "compileOnSave": false,
+  "compilerOptions": {
+    "removeComments": false,
+    "strictNullChecks": true,
+    "allowUnreachableCode": true,
+    "allowUnusedLabels": true,
+    "exactOptionalPropertyTypes": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "isolatedModules": true,
+    "jsx": "react-native",
+    "lib": [
+      "es6"
+    ],
+    "types": [
+      "react-native",
+      "ts-jest"
+    ],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "strict": true,
+    "target": "esnext",
+    "module": "commonjs",
+    "rootDir": ".",
+    "outDir": "./build",
+    "baseUrl": "./src/",
+    "paths": {
+      "@": [
+        "src/*"
+      ],
+      "@assets": [
+        "./assets/*"
+      ],
+      "@navigation": [
+        "navigation/*"
+      ],
+      "@providers": [
+        "providers/*"
+      ],
+      "@service": [
+        "service/*"
+      ],
+      "@screens": [
+        "screens/*"
+      ],
+      "@styles": [
+        "styles/*"
+      ],
+      "@utils": [
+        "utils/*"
+      ],
+      "@components": [
+        "components/"
+      ],
+      "@layouts": [
+        "layouts/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules/**/*",
+    "coverage/",
+    "./src/mocks/*",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js",
+    "android/*",
+    "ios/*"
+  ]
+}

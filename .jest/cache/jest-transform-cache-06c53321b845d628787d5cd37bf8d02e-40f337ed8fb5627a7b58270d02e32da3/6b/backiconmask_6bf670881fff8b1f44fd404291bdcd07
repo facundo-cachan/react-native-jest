@@ -1,0 +1,5 @@
+c24dd71e06413976297d6173426d5c83
+module.exports = {
+      testUri:
+        "../../@react-navigation/elements/lib/commonjs/assets/back-icon-mask.png"
+    };

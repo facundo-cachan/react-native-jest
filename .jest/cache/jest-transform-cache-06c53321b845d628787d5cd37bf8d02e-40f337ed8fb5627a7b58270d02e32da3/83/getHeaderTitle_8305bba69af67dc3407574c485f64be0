@@ -1,0 +1,12 @@
+8d89ac04ce9082b169fccfb700a32858
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = getHeaderTitle;
+
+function getHeaderTitle(options, fallback) {
+  return typeof options.headerTitle === 'string' ? options.headerTitle : options.title !== undefined ? options.title : fallback;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUVlLFNBQVNBLGNBQVQsQ0FDYkMsT0FEYSxFQUViQyxRQUZhLEVBR0w7RUFDUixPQUFPLE9BQU9ELE9BQU8sQ0FBQ0UsV0FBZixLQUErQixRQUEvQixHQUNIRixPQUFPLENBQUNFLFdBREwsR0FFSEYsT0FBTyxDQUFDRyxLQUFSSCxLQUFrQkksU0FBbEJKLEdBQ0FBLE9BQU8sQ0FBQ0csS0FEUkgsR0FFQUMsUUFKSjtBQUtGIiwibmFtZXMiOlsiZ2V0SGVhZGVyVGl0bGUiLCJvcHRpb25zIiwiZmFsbGJhY2siLCJoZWFkZXJUaXRsZSIsInRpdGxlIiwidW5kZWZpbmVkIl0sInNvdXJjZVJvb3QiOiIuLi8uLi8uLi9zcmMiLCJzb3VyY2VzIjpbIkhlYWRlci9nZXRIZWFkZXJUaXRsZS50c3giXSwic291cmNlc0NvbnRlbnQiOltudWxsXX0=

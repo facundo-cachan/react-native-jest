@@ -1,0 +1,1 @@
+{"version":3,"mappings":";;;;;;;AAAA;;AAA6F;EAAA;IAAAA;EAAA;AAAA;;AAAA,eAU9E,qCAAoC,iBAApC,EAAuD;EACpEC,aAAa,EAAE;AADqD,CAAvD,CAV8E;;AAY3FC","names":["default","interfaceOnly","exports"],"sourceRoot":"../../../src","sources":["specs/NativeSafeAreaView.ts"],"sourcesContent":[null]}

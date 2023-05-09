@@ -1,0 +1,1 @@
+{"version":3,"mappings":";;;;;;;AAAA;;AAAgE,eAsBjDA,iCAAoBC,GAApBD,CAA8B,oBAA9BA,CAtBiD;;AAsBEE","names":["TurboModuleRegistry","get","exports"],"sourceRoot":"../../../src","sources":["specs/NativeSafeAreaContext.ts"],"sourcesContent":[null]}

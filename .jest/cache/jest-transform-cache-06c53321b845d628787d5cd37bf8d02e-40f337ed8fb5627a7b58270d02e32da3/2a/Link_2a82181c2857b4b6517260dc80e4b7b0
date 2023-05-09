@@ -1,0 +1,104 @@
+dc40bbe6bfee7ac874d3608ce87b55b8
+"use strict";
+
+var _interopRequireDefault2 = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _objectWithoutProperties2 = _interopRequireDefault2(require("@babel/runtime/helpers/objectWithoutProperties"));
+
+var _excluded = ["to", "action"];
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = Link;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _reactNative = require("react-native");
+
+var _useLinkProps = _interopRequireDefault(require("./useLinkProps"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== "function") return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache(nodeInterop);
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+function Link(_ref) {
+  var to = _ref.to,
+      action = _ref.action,
+      rest = (0, _objectWithoutProperties2.default)(_ref, _excluded);
+  var props = (0, _useLinkProps.default)({
+    to: to,
+    action: action
+  });
+
+  var onPress = function onPress(e) {
+    if ('onPress' in rest) {
+      var _rest$onPress;
+
+      (_rest$onPress = rest.onPress) === null || _rest$onPress === void 0 ? void 0 : _rest$onPress.call(rest, e);
+    }
+
+    props.onPress(e);
+  };
+
+  return React.createElement(_reactNative.Text, Object.assign({}, props, rest, _reactNative.Platform.select({
+    web: {
+      onClick: onPress
+    },
+    default: {
+      onPress: onPress
+    }
+  })));
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0FBQ0E7O0FBQ0E7O0FBRUE7O0FBQTBDO0VBQUE7SUFBQUE7RUFBQTtBQUFBOztBQUFBO0VBQUE7RUFBQTtFQUFBO0VBQUE7SUFBQTtFQUFBO0FBQUE7O0FBQUE7RUFBQTtJQUFBO0VBQUE7O0VBQUE7SUFBQTtNQUFBQTtJQUFBO0VBQUE7O0VBQUE7O0VBQUE7SUFBQTtFQUFBOztFQUFBO0VBQUE7O0VBQUE7SUFBQTtNQUFBOztNQUFBO1FBQUFDO01BQUE7UUFBQUM7TUFBQTtJQUFBO0VBQUE7O0VBQUFBOztFQUFBO0lBQUFDO0VBQUE7O0VBQUE7QUFBQTs7QUFvQjNCLFNBQVNDLElBQVQsQ0FBYUMsSUFBYixFQUlNO0VBQUEsSUFIbkJDLEVBR21CLEdBQUZELElBQUUsQ0FIbkJDLEVBR21CO0VBQUEsSUFGbkJDLE1BRW1CLEdBQUZGLElBQUUsQ0FGbkJFLE1BRW1CO0VBQUEsSUFEaEJDLElBQ2dCLDBDQUFGSCxJQUFFO0VBQ25CLElBQU1JLEtBQUssR0FBRywyQkFBd0I7SUFBRUgsRUFBRSxFQUFGQSxFQUFGO0lBQU1DO0VBQU4sQ0FBeEIsQ0FBZDs7RUFFQSxJQUFNRyxPQUFPLEdBQ1hDLFNBRElELE9BQ0pDLEVBQTBFLEVBQ3ZFO0lBQ0gsSUFBSSxhQUFhSCxJQUFqQixFQUF1QjtNQUFBOztNQUNyQixxQkFBSSxDQUFDRSxPQUFMLE1BQVksSUFBWixJQUFZRSx3QkFBWixHQUFZLE1BQVosNEJBQWVELENBQWY7SUFDRjs7SUFFQUYsS0FBSyxDQUFDQyxPQUFORCxDQUFjRSxDQUFkRjtFQUNELENBUkQ7O0VBVUEsT0FBT0ksS0FBSyxDQUFDQyxhQUFORCxDQUFvQkUsaUJBQXBCRixvQkFDRkosS0FERUksRUFFRkwsSUFGRUssRUFHRkcsc0JBQVNDLE1BQVRELENBQWdCO0lBQ2pCRSxHQUFHLEVBQUU7TUFBRUMsT0FBTyxFQUFFVDtJQUFYLENBRFk7SUFFakJWLE9BQU8sRUFBRTtNQUFFVTtJQUFGO0VBRlEsQ0FBaEJNLENBSEVILEVBQVA7QUFRRiIsIm5hbWVzIjpbImRlZmF1bHQiLCJPYmplY3QiLCJuZXdPYmoiLCJjYWNoZSIsIkxpbmsiLCJfcmVmIiwidG8iLCJhY3Rpb24iLCJyZXN0IiwicHJvcHMiLCJvblByZXNzIiwiZSIsIl9yZXN0JG9uUHJlc3MiLCJSZWFjdCIsImNyZWF0ZUVsZW1lbnQiLCJUZXh0IiwiUGxhdGZvcm0iLCJzZWxlY3QiLCJ3ZWIiLCJvbkNsaWNrIl0sInNvdXJjZVJvb3QiOiIuLi8uLi9zcmMiLCJzb3VyY2VzIjpbIkxpbmsudHN4Il0sInNvdXJjZXNDb250ZW50IjpbbnVsbF19

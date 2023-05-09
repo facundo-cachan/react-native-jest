@@ -1,0 +1,64 @@
+b00eb377c52688b67a5aaf506902e61d
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers/toConsumableArray"));
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = checkSerializable;
+
+var checkSerializableWithoutCircularReference = function checkSerializableWithoutCircularReference(o, seen, location) {
+  if (o === undefined || o === null || typeof o === 'boolean' || typeof o === 'number' || typeof o === 'string') {
+    return {
+      serializable: true
+    };
+  }
+
+  if (Object.prototype.toString.call(o) !== '[object Object]' && !Array.isArray(o)) {
+    return {
+      serializable: false,
+      location: location,
+      reason: typeof o === 'function' ? 'Function' : String(o)
+    };
+  }
+
+  if (seen.has(o)) {
+    return {
+      serializable: false,
+      reason: 'Circular reference',
+      location: location
+    };
+  }
+
+  seen.add(o);
+
+  if (Array.isArray(o)) {
+    for (var i = 0; i < o.length; i++) {
+      var childResult = checkSerializableWithoutCircularReference(o[i], new Set(seen), [].concat((0, _toConsumableArray2.default)(location), [i]));
+
+      if (!childResult.serializable) {
+        return childResult;
+      }
+    }
+  } else {
+    for (var key in o) {
+      var _childResult = checkSerializableWithoutCircularReference(o[key], new Set(seen), [].concat((0, _toConsumableArray2.default)(location), [key]));
+
+      if (!_childResult.serializable) {
+        return _childResult;
+      }
+    }
+  }
+
+  return {
+    serializable: true
+  };
+};
+
+function checkSerializable(o) {
+  return checkSerializableWithoutCircularReference(o, new Set(), []);
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFBQSxJQUFNQSx5Q0FBeUMsR0FBRyxTQUE1Q0EseUNBQTRDLENBQ2hEQyxDQURnRCxFQUVoREMsSUFGZ0QsRUFHaERDLFFBSGdELEVBVXpDO0VBQ1AsSUFDRUYsQ0FBQyxLQUFLRyxTQUFOSCxJQUNBQSxDQUFDLEtBQUssSUFETkEsSUFFQSxPQUFPQSxDQUFQLEtBQWEsU0FGYkEsSUFHQSxPQUFPQSxDQUFQLEtBQWEsUUFIYkEsSUFJQSxPQUFPQSxDQUFQLEtBQWEsUUFMZixFQU1FO0lBQ0EsT0FBTztNQUFFSSxZQUFZLEVBQUU7SUFBaEIsQ0FBUDtFQUNGOztFQUVBLElBQ0VDLE1BQU0sQ0FBQ0MsU0FBUEQsQ0FBaUJFLFFBQWpCRixDQUEwQkcsSUFBMUJILENBQStCTCxDQUEvQkssTUFBc0MsaUJBQXRDQSxJQUNBLENBQUNJLEtBQUssQ0FBQ0MsT0FBTkQsQ0FBY1QsQ0FBZFMsQ0FGSCxFQUdFO0lBQ0EsT0FBTztNQUNMTCxZQUFZLEVBQUUsS0FEVDtNQUVMRixRQUFRLEVBQVJBLFFBRks7TUFHTFMsTUFBTSxFQUFFLE9BQU9YLENBQVAsS0FBYSxVQUFiLEdBQTBCLFVBQTFCLEdBQXVDWSxNQUFNLENBQUNaLENBQUQ7SUFIaEQsQ0FBUDtFQUtGOztFQUVBLElBQUlDLElBQUksQ0FBQ1ksR0FBTFosQ0FBU0QsQ0FBVEMsQ0FBSixFQUFpQjtJQUNmLE9BQU87TUFDTEcsWUFBWSxFQUFFLEtBRFQ7TUFFTE8sTUFBTSxFQUFFLG9CQUZIO01BR0xUO0lBSEssQ0FBUDtFQUtGOztFQUVBRCxJQUFJLENBQUNhLEdBQUxiLENBQVNELENBQVRDOztFQUVBLElBQUlRLEtBQUssQ0FBQ0MsT0FBTkQsQ0FBY1QsQ0FBZFMsQ0FBSixFQUFzQjtJQUNwQixLQUFLLElBQUlNLENBQUMsR0FBRyxDQUFiLEVBQWdCQSxDQUFDLEdBQUdmLENBQUMsQ0FBQ2dCLE1BQXRCLEVBQThCRCxDQUFDLEVBQS9CLEVBQW1DO01BQ2pDLElBQU1FLFdBQVcsR0FBR2xCLHlDQUF5QyxDQUMzREMsQ0FBQyxDQUFDZSxDQUFELENBRDBELEVBRTNELElBQUlHLEdBQUosQ0FBYWpCLElBQWIsQ0FGMkQsNkNBR3ZEQyxRQUh1RCxJQUc3Q2EsQ0FINkMsR0FBN0Q7O01BTUEsSUFBSSxDQUFDRSxXQUFXLENBQUNiLFlBQWpCLEVBQStCO1FBQzdCLE9BQU9hLFdBQVA7TUFDRjtJQUNGO0VBQ0QsQ0FaRCxNQVlPO0lBQ0wsS0FBSyxJQUFNRSxHQUFYLElBQWtCbkIsQ0FBbEIsRUFBcUI7TUFDbkIsSUFBTWlCLFlBQVcsR0FBR2xCLHlDQUF5QyxDQUMzREMsQ0FBQyxDQUFDbUIsR0FBRCxDQUQwRCxFQUUzRCxJQUFJRCxHQUFKLENBQWFqQixJQUFiLENBRjJELDZDQUd2REMsUUFIdUQsSUFHN0NpQixHQUg2QyxHQUE3RDs7TUFNQSxJQUFJLENBQUNGLFlBQVcsQ0FBQ2IsWUFBakIsRUFBK0I7UUFDN0IsT0FBT2EsWUFBUDtNQUNGO0lBQ0Y7RUFDRjs7RUFFQSxPQUFPO0lBQUViLFlBQVksRUFBRTtFQUFoQixDQUFQO0FBQ0QsQ0FyRUQ7O0FBdUVlLFNBQVNnQixpQkFBVCxDQUEyQnBCLENBQTNCLEVBQXNEO0VBQ25FLE9BQU9ELHlDQUF5QyxDQUFDQyxDQUFELEVBQUksSUFBSWtCLEdBQUosRUFBSixFQUFvQixFQUFwQixDQUFoRDtBQUNGIiwibmFtZXMiOlsiY2hlY2tTZXJpYWxpemFibGVXaXRob3V0Q2lyY3VsYXJSZWZlcmVuY2UiLCJvIiwic2VlbiIsImxvY2F0aW9uIiwidW5kZWZpbmVkIiwic2VyaWFsaXphYmxlIiwiT2JqZWN0IiwicHJvdG90eXBlIiwidG9TdHJpbmciLCJjYWxsIiwiQXJyYXkiLCJpc0FycmF5IiwicmVhc29uIiwiU3RyaW5nIiwiaGFzIiwiYWRkIiwiaSIsImxlbmd0aCIsImNoaWxkUmVzdWx0IiwiU2V0Iiwia2V5IiwiY2hlY2tTZXJpYWxpemFibGUiXSwic291cmNlUm9vdCI6Ii4uLy4uL3NyYyIsInNvdXJjZXMiOlsiY2hlY2tTZXJpYWxpemFibGUudHN4Il0sInNvdXJjZXNDb250ZW50IjpbbnVsbF19

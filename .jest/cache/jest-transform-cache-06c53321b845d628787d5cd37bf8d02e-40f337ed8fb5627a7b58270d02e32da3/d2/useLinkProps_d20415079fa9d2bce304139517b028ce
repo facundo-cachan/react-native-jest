@@ -1,0 +1,147 @@
+9960b572e983bd39d5fd9f8064f2dbde
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = useLinkProps;
+
+var _core = require("@react-navigation/core");
+
+var React = _interopRequireWildcard(require("react"));
+
+var _reactNative = require("react-native");
+
+var _LinkingContext = _interopRequireDefault(require("./LinkingContext"));
+
+var _useLinkTo = _interopRequireDefault(require("./useLinkTo"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== "function") return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache(nodeInterop);
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+var getStateFromParams = function getStateFromParams(params) {
+  if (params !== null && params !== void 0 && params.state) {
+    return params.state;
+  }
+
+  if (params !== null && params !== void 0 && params.screen) {
+    return {
+      routes: [{
+        name: params.screen,
+        params: params.params,
+        state: params.screen ? getStateFromParams(params.params) : undefined
+      }]
+    };
+  }
+
+  return undefined;
+};
+
+function useLinkProps(_ref) {
+  var _ref2;
+
+  var to = _ref.to,
+      action = _ref.action;
+  var root = React.useContext(_core.NavigationContainerRefContext);
+  var navigation = React.useContext(_core.NavigationHelpersContext);
+
+  var _React$useContext = React.useContext(_LinkingContext.default),
+      options = _React$useContext.options;
+
+  var linkTo = (0, _useLinkTo.default)();
+
+  var onPress = function onPress(e) {
+    var _e$currentTarget;
+
+    var shouldHandle = false;
+
+    if (_reactNative.Platform.OS !== 'web' || !e) {
+      shouldHandle = e ? !e.defaultPrevented : true;
+    } else if (!e.defaultPrevented && !(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey) && (e.button == null || e.button === 0) && [undefined, null, '', 'self'].includes((_e$currentTarget = e.currentTarget) === null || _e$currentTarget === void 0 ? void 0 : _e$currentTarget.target)) {
+      e.preventDefault();
+      shouldHandle = true;
+    }
+
+    if (shouldHandle) {
+      if (action) {
+        if (navigation) {
+          navigation.dispatch(action);
+        } else if (root) {
+          root.dispatch(action);
+        } else {
+          throw new Error("Couldn't find a navigation object. Is your component inside NavigationContainer?");
+        }
+      } else {
+        linkTo(to);
+      }
+    }
+  };
+
+  var getPathFromStateHelper = (_ref2 = options === null || options === void 0 ? void 0 : options.getPathFromState) != null ? _ref2 : _core.getPathFromState;
+  var href = typeof to === 'string' ? to : getPathFromStateHelper({
+    routes: [{
+      name: to.screen,
+      params: to.params,
+      state: getStateFromParams(to.params)
+    }]
+  }, options === null || options === void 0 ? void 0 : options.config);
+  return {
+    href: href,
+    accessibilityRole: 'link',
+    onPress: onPress
+  };
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,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QUNxQixRQUFYckIsQ0FBb0JMLE1BQXBCSztRQUNELENBRkQsTUFFTyxJQUFJSixJQUFKLEVBQVU7VUFDZkEsSUFBSSxDQUFDeUIsUUFBTHpCLENBQWNELE1BQWRDO1FBQ0QsQ0FGTSxNQUVBO1VBQ0wsTUFBTSxJQUFJMEIsS0FBSixDQUNKLGtGQURJLENBQU47UUFHRjtNQUNELENBVkQsTUFVTztRQUNMbEIsTUFBTSxDQUFDVixFQUFELENBQU5VO01BQ0Y7SUFDRjtFQUNELENBbkNEOztFQXFDQSxJQUFNbUIsc0JBQXNCLFlBQUdwQixPQUFPLFNBQVBBLFdBQU8sV0FBUEEsR0FBTyxNQUFQQSxVQUFPLENBQUVxQixnQkFBWixvQkFBZ0NBLHNCQUE1RDtFQUVBLElBQU1DLElBQUksR0FDUixPQUFPL0IsRUFBUCxLQUFjLFFBQWQsR0FDSUEsRUFESixHQUVJNkIsc0JBQXNCLENBQ3BCO0lBQ0VsQyxNQUFNLEVBQUUsQ0FDTjtNQUNFQyxJQUFJLEVBQUVJLEVBQUUsQ0FBQ04sTUFEWDtNQUdFRixNQUFNLEVBQUVRLEVBQUUsQ0FBQ1IsTUFIYjtNQUtFQyxLQUFLLEVBQUVGLGtCQUFrQixDQUFDUyxFQUFFLENBQUNSLE1BQUo7SUFMM0IsQ0FETTtFQURWLENBRG9CLEVBWXBCaUIsT0FBTyxTQUFQQSxXQUFPLFdBQVBBLEdBQU8sTUFBUEEsVUFBTyxDQUFFdUIsTUFaVyxDQUg1QjtFQWtCQSxPQUFPO0lBQ0xELElBQUksRUFBSkEsSUFESztJQUVMRSxpQkFBaUIsRUFBRSxNQUZkO0lBR0x0QjtFQUhLLENBQVA7QUFLRiIsIm5hbWVzIjpbImRlZmF1bHQiLCJPYmplY3QiLCJuZXdPYmoiLCJjYWNoZSIsImdldFN0YXRlRnJvbVBhcmFtcyIsInBhcmFtcyIsInN0YXRlIiwic2NyZWVuIiwicm91dGVzIiwibmFtZSIsInVuZGVmaW5lZCIsInVzZUxpbmtQcm9wcyIsIl9yZWYiLCJ0byIsImFjdGlvbiIsInJvb3QiLCJSZWFjdCIsInVzZUNvbnRleHQiLCJOYXZpZ2F0aW9uQ29udGFpbmVyUmVmQ29udGV4dCIsIm5hdmlnYXRpb24iLCJOYXZpZ2F0aW9uSGVscGVyc0NvbnRleHQiLCJMaW5raW5nQ29udGV4dCIsIm9wdGlvbnMiLCJsaW5rVG8iLCJvblByZXNzIiwiZSIsInNob3VsZEhhbmRsZSIsIlBsYXRmb3JtIiwiT1MiLCJkZWZhdWx0UHJldmVudGVkIiwibWV0YUtleSIsImFsdEtleSIsImN0cmxLZXkiLCJzaGlmdEtleSIsImJ1dHRvbiIsImluY2x1ZGVzIiwiY3VycmVudFRhcmdldCIsIl9lJGN1cnJlbnRUYXJnZXQiLCJ0YXJnZXQiLCJwcmV2ZW50RGVmYXVsdCIsImRpc3BhdGNoIiwiRXJyb3IiLCJnZXRQYXRoRnJvbVN0YXRlSGVscGVyIiwiZ2V0UGF0aEZyb21TdGF0ZSIsImhyZWYiLCJjb25maWciLCJhY2Nlc3NpYmlsaXR5Um9sZSJdLCJzb3VyY2VSb290IjoiLi4vLi4vc3JjIiwic291cmNlcyI6WyJ1c2VMaW5rUHJvcHMudHN4Il0sInNvdXJjZXNDb250ZW50IjpbbnVsbF19

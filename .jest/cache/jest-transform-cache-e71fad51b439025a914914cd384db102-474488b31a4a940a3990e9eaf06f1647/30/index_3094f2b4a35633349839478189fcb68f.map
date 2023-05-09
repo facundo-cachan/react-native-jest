@@ -1,0 +1,1 @@
+{"version":3,"names":["_text","_interopRequireDefault","require"],"sources":["index.ts"],"sourcesContent":["import Text from './text'\n\nimport { Props as TextProps } from './text/interfaces'\n\nexport type { TextProps }\nexport { Text }\n\n"],"mappings":";;;;;;;;;;;;AAAA,IAAAA,KAAA,GAAAC,sBAAA,CAAAC,OAAA"}

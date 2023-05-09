@@ -1,0 +1,92 @@
+5caf8e9779c67b0ff0960d86fbd104ef
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _slicedToArray2 = _interopRequireDefault(require("@babel/runtime/helpers/slicedToArray"));
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = useRegisterNavigator;
+
+var _nonSecure = require("nanoid/non-secure");
+
+var React = _interopRequireWildcard(require("react"));
+
+var _EnsureSingleNavigator = require("./EnsureSingleNavigator");
+
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== "function") return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache(nodeInterop);
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+function useRegisterNavigator() {
+  var _React$useState = React.useState(function () {
+    return (0, _nonSecure.nanoid)();
+  }),
+      _React$useState2 = (0, _slicedToArray2.default)(_React$useState, 1),
+      key = _React$useState2[0];
+
+  var container = React.useContext(_EnsureSingleNavigator.SingleNavigatorContext);
+
+  if (container === undefined) {
+    throw new Error("Couldn't register the navigator. Have you wrapped your app with 'NavigationContainer'?\n\nThis can also happen if there are multiple copies of '@react-navigation' packages installed.");
+  }
+
+  React.useEffect(function () {
+    var register = container.register,
+        unregister = container.unregister;
+    register(key);
+    return function () {
+      return unregister(key);
+    };
+  }, [container, key]);
+  return key;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7QUFBQTs7QUFDQTs7QUFFQTs7QUFBaUU7RUFBQTtFQUFBO0VBQUE7RUFBQTtJQUFBO0VBQUE7QUFBQTs7QUFBQTtFQUFBO0lBQUE7RUFBQTs7RUFBQTtJQUFBO01BQUFBO0lBQUE7RUFBQTs7RUFBQTs7RUFBQTtJQUFBO0VBQUE7O0VBQUE7RUFBQTs7RUFBQTtJQUFBO01BQUE7O01BQUE7UUFBQUM7TUFBQTtRQUFBQztNQUFBO0lBQUE7RUFBQTs7RUFBQUE7O0VBQUE7SUFBQUM7RUFBQTs7RUFBQTtBQUFBOztBQU1sRCxTQUFTQyxvQkFBVCxHQUFnQztFQUM3QyxzQkFBY0MsS0FBSyxDQUFDQyxRQUFORCxDQUFlO0lBQUEsT0FBTSx3QkFBTjtFQUFBLENBQWZBLENBQWQ7RUFBQTtFQUFBLElBQU9FLEdBQVA7O0VBQ0EsSUFBTUMsU0FBUyxHQUFHSCxLQUFLLENBQUNJLFVBQU5KLENBQWlCSyw2Q0FBakJMLENBQWxCOztFQUVBLElBQUlHLFNBQVMsS0FBS0csU0FBbEIsRUFBNkI7SUFDM0IsTUFBTSxJQUFJQyxLQUFKLENBQ0osd0xBREksQ0FBTjtFQUdGOztFQUVBUCxLQUFLLENBQUNRLFNBQU5SLENBQWdCLFlBQU07SUFDcEIsSUFBUVMsUUFBUixHQUFpQ04sU0FBakMsQ0FBUU0sUUFBUjtJQUFBLElBQWtCQyxVQUFsQixHQUFpQ1AsU0FBakMsQ0FBa0JPLFVBQWxCO0lBRUFELFFBQVEsQ0FBQ1AsR0FBRCxDQUFSTztJQUVBLE9BQU87TUFBQSxPQUFNQyxVQUFVLENBQUNSLEdBQUQsQ0FBaEI7SUFBQSxDQUFQO0VBQ0QsQ0FOREYsRUFNRyxDQUFDRyxTQUFELEVBQVlELEdBQVosQ0FOSEY7RUFRQSxPQUFPRSxHQUFQO0FBQ0YiLCJuYW1lcyI6WyJkZWZhdWx0IiwiT2JqZWN0IiwibmV3T2JqIiwiY2FjaGUiLCJ1c2VSZWdpc3Rlck5hdmlnYXRvciIsIlJlYWN0IiwidXNlU3RhdGUiLCJrZXkiLCJjb250YWluZXIiLCJ1c2VDb250ZXh0IiwiU2luZ2xlTmF2aWdhdG9yQ29udGV4dCIsInVuZGVmaW5lZCIsIkVycm9yIiwidXNlRWZmZWN0IiwicmVnaXN0ZXIiLCJ1bnJlZ2lzdGVyIl0sInNvdXJjZVJvb3QiOiIuLi8uLi9zcmMiLCJzb3VyY2VzIjpbInVzZVJlZ2lzdGVyTmF2aWdhdG9yLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6W251bGxdfQ==

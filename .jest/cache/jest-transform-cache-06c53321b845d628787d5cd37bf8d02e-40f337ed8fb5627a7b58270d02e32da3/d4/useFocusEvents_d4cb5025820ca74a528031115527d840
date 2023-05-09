@@ -1,0 +1,122 @@
+f904155fb34bd06c6111bb0f7ef55c9e
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = useFocusEvents;
+
+var React = _interopRequireWildcard(require("react"));
+
+var _NavigationContext = _interopRequireDefault(require("./NavigationContext"));
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+function _getRequireWildcardCache(nodeInterop) {
+  if (typeof WeakMap !== "function") return null;
+  var cacheBabelInterop = new WeakMap();
+  var cacheNodeInterop = new WeakMap();
+  return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) {
+    return nodeInterop ? cacheNodeInterop : cacheBabelInterop;
+  })(nodeInterop);
+}
+
+function _interopRequireWildcard(obj, nodeInterop) {
+  if (!nodeInterop && obj && obj.__esModule) {
+    return obj;
+  }
+
+  if (obj === null || typeof obj !== "object" && typeof obj !== "function") {
+    return {
+      default: obj
+    };
+  }
+
+  var cache = _getRequireWildcardCache(nodeInterop);
+
+  if (cache && cache.has(obj)) {
+    return cache.get(obj);
+  }
+
+  var newObj = {};
+  var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor;
+
+  for (var key in obj) {
+    if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) {
+      var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null;
+
+      if (desc && (desc.get || desc.set)) {
+        Object.defineProperty(newObj, key, desc);
+      } else {
+        newObj[key] = obj[key];
+      }
+    }
+  }
+
+  newObj.default = obj;
+
+  if (cache) {
+    cache.set(obj, newObj);
+  }
+
+  return newObj;
+}
+
+function useFocusEvents(_ref) {
+  var state = _ref.state,
+      emitter = _ref.emitter;
+  var navigation = React.useContext(_NavigationContext.default);
+  var lastFocusedKeyRef = React.useRef();
+  var currentFocusedKey = state.routes[state.index].key;
+  React.useEffect(function () {
+    return navigation === null || navigation === void 0 ? void 0 : navigation.addListener('focus', function () {
+      lastFocusedKeyRef.current = currentFocusedKey;
+      emitter.emit({
+        type: 'focus',
+        target: currentFocusedKey
+      });
+    });
+  }, [currentFocusedKey, emitter, navigation]);
+  React.useEffect(function () {
+    return navigation === null || navigation === void 0 ? void 0 : navigation.addListener('blur', function () {
+      lastFocusedKeyRef.current = undefined;
+      emitter.emit({
+        type: 'blur',
+        target: currentFocusedKey
+      });
+    });
+  }, [currentFocusedKey, emitter, navigation]);
+  React.useEffect(function () {
+    var lastFocusedKey = lastFocusedKeyRef.current;
+    lastFocusedKeyRef.current = currentFocusedKey;
+
+    if (lastFocusedKey === undefined && !navigation) {
+      emitter.emit({
+        type: 'focus',
+        target: currentFocusedKey
+      });
+    }
+
+    if (lastFocusedKey === currentFocusedKey || !(navigation ? navigation.isFocused() : true)) {
+      return;
+    }
+
+    if (lastFocusedKey === undefined) {
+      return;
+    }
+
+    emitter.emit({
+      type: 'blur',
+      target: lastFocusedKey
+    });
+    emitter.emit({
+      type: 'focus',
+      target: currentFocusedKey
+    });
+  }, [currentFocusedKey, emitter, navigation]);
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,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RyxDQUFDSyxpQkFBRCxFQUFvQlAsT0FBcEIsRUFBNkJDLFVBQTdCLENBM0JIQztBQTRCRiIsIm5hbWVzIjpbImRlZmF1bHQiLCJPYmplY3QiLCJuZXdPYmoiLCJjYWNoZSIsInVzZUZvY3VzRXZlbnRzIiwiX3JlZiIsInN0YXRlIiwiZW1pdHRlciIsIm5hdmlnYXRpb24iLCJSZWFjdCIsInVzZUNvbnRleHQiLCJOYXZpZ2F0aW9uQ29udGV4dCIsImxhc3RGb2N1c2VkS2V5UmVmIiwidXNlUmVmIiwiY3VycmVudEZvY3VzZWRLZXkiLCJyb3V0ZXMiLCJpbmRleCIsImtleSIsInVzZUVmZmVjdCIsImFkZExpc3RlbmVyIiwiY3VycmVudCIsImVtaXQiLCJ0eXBlIiwidGFyZ2V0IiwidW5kZWZpbmVkIiwibGFzdEZvY3VzZWRLZXkiLCJpc0ZvY3VzZWQiXSwic291cmNlUm9vdCI6Ii4uLy4uL3NyYyIsInNvdXJjZXMiOlsidXNlRm9jdXNFdmVudHMudHN4Il0sInNvdXJjZXNDb250ZW50IjpbbnVsbF19

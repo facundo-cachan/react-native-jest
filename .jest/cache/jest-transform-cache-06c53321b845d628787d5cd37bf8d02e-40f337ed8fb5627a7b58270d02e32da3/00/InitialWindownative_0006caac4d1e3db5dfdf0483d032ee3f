@@ -1,0 +1,25 @@
+38909e606d411ec97a3d3ed3f3746fa0
+"use strict";
+
+var _ref;
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.initialWindowSafeAreaInsets = exports.initialWindowMetrics = void 0;
+
+var _NativeSafeAreaContext = _interopRequireDefault(require("./specs/NativeSafeAreaContext"));
+
+var _NativeSafeAreaContex, _NativeSafeAreaContex2;
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    default: obj
+  };
+}
+
+var initialWindowMetrics = (_ref = _NativeSafeAreaContext.default === null || _NativeSafeAreaContext.default === void 0 ? void 0 : (_NativeSafeAreaContex = _NativeSafeAreaContext.default.getConstants) === null || _NativeSafeAreaContex === void 0 ? void 0 : (_NativeSafeAreaContex2 = _NativeSafeAreaContex.call(_NativeSafeAreaContext.default)) === null || _NativeSafeAreaContex2 === void 0 ? void 0 : _NativeSafeAreaContex2.initialWindowMetrics) != null ? _ref : null;
+exports.initialWindowMetrics = initialWindowMetrics;
+var initialWindowSafeAreaInsets = initialWindowMetrics === null || initialWindowMetrics === void 0 ? void 0 : initialWindowMetrics.insets;
+exports.initialWindowSafeAreaInsets = initialWindowSafeAreaInsets;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7O0FBQ0E7O0FBQWtFOztBQUFBO0VBQUE7SUFBQUE7RUFBQTtBQUFBOztBQUUzRCxJQUFNQyxvQkFBb0IsV0FBSUMsbUNBQXFCLElBQXJCQSx1Q0FBcUIsTUFBckJBLEdBQXFCLE1BQXJCQSxHQUFxQix5QkFBckJBLCtCQUF1QkMsWUFBRixNQUFjLElBQWQsSUFBY0MsZ0NBQWQsR0FBYyxNQUFkLEdBQWMsMEJBQW5DQSwwREFBbUMsTUFBSSxJQUFKLElBQUlDLGlDQUFKLEdBQUksTUFBSixHQUFuQ0EsdUJBQ2pDSixvQkFENkIsbUJBQ0wsSUFEckI7QUFHUEs7QUFHTyxJQUFNQywyQkFBMkIsR0FBR04sb0JBQW9CLFNBQXBCQSx3QkFBb0IsV0FBcEJBLEdBQW9CLE1BQXBCQSx1QkFBb0IsQ0FBRU8sTUFBMUQ7QUFBaUVGIiwibmFtZXMiOlsiZGVmYXVsdCIsImluaXRpYWxXaW5kb3dNZXRyaWNzIiwiTmF0aXZlU2FmZUFyZWFDb250ZXh0IiwiZ2V0Q29uc3RhbnRzIiwiX05hdGl2ZVNhZmVBcmVhQ29udGV4IiwiX05hdGl2ZVNhZmVBcmVhQ29udGV4MiIsImV4cG9ydHMiLCJpbml0aWFsV2luZG93U2FmZUFyZWFJbnNldHMiLCJpbnNldHMiXSwic291cmNlUm9vdCI6Ii4uLy4uL3NyYyIsInNvdXJjZXMiOlsiSW5pdGlhbFdpbmRvdy5uYXRpdmUudHMiXSwic291cmNlc0NvbnRlbnQiOltudWxsXX0=

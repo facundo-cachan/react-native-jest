@@ -1,0 +1,55 @@
+9c46ff9a1c8de1c1409644dcec0a1939
+_getJestObj().mock('react-native/Libraries/Animated/NativeAnimatedHelper');
+
+_getJestObj().mock('react-native-reanimated', function () {
+  var Reanimated = require('react-native-reanimated/mock');
+
+  Reanimated.default.call = function () {};
+
+  return Reanimated;
+});
+
+_getJestObj().mock('@react-navigation/native', function () {
+  var actualNav = jest.requireActual('@react-navigation/native');
+  return Object.assign({}, actualNav, {
+    useNavigation: function useNavigation() {
+      return {
+        navigate: jest.fn()
+      };
+    }
+  });
+});
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extendExpect = require("@testing-library/jest-native/extend-expect");
+
+Object.keys(_extendExpect).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  if (key in exports && exports[key] === _extendExpect[key]) return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _extendExpect[key];
+    }
+  });
+});
+
+require("react-native-gesture-handler/jestSetup");
+
+function _getJestObj() {
+  var _require = require("@jest/globals"),
+      jest = _require.jest;
+
+  _getJestObj = function _getJestObj() {
+    return jest;
+  };
+
+  return jest;
+}
+
+jest.useFakeTimers();
+jest.spyOn(console, 'error').mockImplementation(function () {});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJtb2NrIiwiUmVhbmltYXRlZCIsInJlcXVpcmUiLCJkZWZhdWx0IiwiY2FsbCIsImFjdHVhbE5hdiIsImplc3QiLCJyZXF1aXJlQWN0dWFsIiwidXNlTmF2aWdhdGlvbiIsIm5hdmlnYXRlIiwiZm4iLCJ1c2VGYWtlVGltZXJzIiwic3B5T24iLCJjb25zb2xlIiwibW9ja0ltcGxlbWVudGF0aW9uIl0sInNvdXJjZXMiOlsiamVzdC5zZXR1cC5qcyJdLCJzb3VyY2VzQ29udGVudCI6WyIvLyBpbXBvcnQgbm9jayBmcm9tICdub2NrJztcblxuaW1wb3J0ICdAdGVzdGluZy1saWJyYXJ5L2plc3QtbmF0aXZlL2V4dGVuZC1leHBlY3QnO1xuaW1wb3J0ICdyZWFjdC1uYXRpdmUtZ2VzdHVyZS1oYW5kbGVyL2plc3RTZXR1cCc7XG5cbi8vIG5vY2suZGlzYWJsZU5ldENvbm5lY3QoKTtcbmplc3QudXNlRmFrZVRpbWVycygpO1xuXG5qZXN0LnNweU9uKGNvbnNvbGUsICdlcnJvcicpLm1vY2tJbXBsZW1lbnRhdGlvbigoKSA9PiB7fSk7XG5cbmplc3QubW9jaygncmVhY3QtbmF0aXZlL0xpYnJhcmllcy9BbmltYXRlZC9OYXRpdmVBbmltYXRlZEhlbHBlcicpO1xuamVzdC5tb2NrKCdyZWFjdC1uYXRpdmUtcmVhbmltYXRlZCcsICgpID0+IHtcbiAgY29uc3QgUmVhbmltYXRlZCA9IHJlcXVpcmUoJ3JlYWN0LW5hdGl2ZS1yZWFuaW1hdGVkL21vY2snKTtcbiAgUmVhbmltYXRlZC5kZWZhdWx0LmNhbGwgPSAoKSA9PiB7fTtcbiAgcmV0dXJuIFJlYW5pbWF0ZWQ7XG59KTtcbmplc3QubW9jaygnQHJlYWN0LW5hdmlnYXRpb24vbmF0aXZlJywgKCkgPT4ge1xuICBjb25zdCBhY3R1YWxOYXYgPSBqZXN0LnJlcXVpcmVBY3R1YWwoJ0ByZWFjdC1uYXZpZ2F0aW9uL25hdGl2ZScpO1xuICByZXR1cm4ge1xuICAgIC4uLmFjdHVhbE5hdixcbiAgICB1c2VOYXZpZ2F0aW9uOiAoKSA9PiAoe1xuICAgICAgbmF2aWdhdGU6IGplc3QuZm4oKSxcbiAgICB9KSxcbiAgfTtcbn0pO1xuXG5leHBvcnQgKiBmcm9tICdAdGVzdGluZy1saWJyYXJ5L2plc3QtbmF0aXZlL2V4dGVuZC1leHBlY3QnO1xuIl0sIm1hcHBpbmdzIjoiQUFVQSxjQUFLQSxJQUFMLENBQVUsc0RBQVY7O0FBQ0EsY0FBS0EsSUFBTCxDQUFVLHlCQUFWLEVBQXFDLFlBQU07RUFDekMsSUFBTUMsVUFBVSxHQUFHQyxPQUFPLENBQUMsOEJBQUQsQ0FBMUI7O0VBQ0FELFVBQVUsQ0FBQ0UsT0FBWCxDQUFtQkMsSUFBbkIsR0FBMEIsWUFBTSxDQUFFLENBQWxDOztFQUNBLE9BQU9ILFVBQVA7QUFDRCxDQUpEOztBQUtBLGNBQUtELElBQUwsQ0FBVSwwQkFBVixFQUFzQyxZQUFNO0VBQzFDLElBQU1LLFNBQVMsR0FBR0MsSUFBSSxDQUFDQyxhQUFMLENBQW1CLDBCQUFuQixDQUFsQjtFQUNBLHlCQUNLRixTQURMO0lBRUVHLGFBQWEsRUFBRTtNQUFBLE9BQU87UUFDcEJDLFFBQVEsRUFBRUgsSUFBSSxDQUFDSSxFQUFMO01BRFUsQ0FBUDtJQUFBO0VBRmpCO0FBTUQsQ0FSRDs7Ozs7O0FBZEE7O0FBd0JBO0VBQUE7RUFBQTtFQUFBO0lBQUE7SUFBQTtNQUFBO0lBQUE7RUFBQTtBQUFBOztBQXZCQTs7Ozs7Ozs7Ozs7OztBQUdBSixJQUFJLENBQUNLLGFBQUw7QUFFQUwsSUFBSSxDQUFDTSxLQUFMLENBQVdDLE9BQVgsRUFBb0IsT0FBcEIsRUFBNkJDLGtCQUE3QixDQUFnRCxZQUFNLENBQUUsQ0FBeEQifQ==

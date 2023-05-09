@@ -1,0 +1,41 @@
+057c364e1098fe9cf996a52c94ecdcf4
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = getDefaultHeaderHeight;
+
+var _reactNative = require("react-native");
+
+function getDefaultHeaderHeight(layout, modalPresentation, statusBarHeight) {
+  var headerHeight;
+  var isLandscape = layout.width > layout.height;
+
+  if (_reactNative.Platform.OS === 'ios') {
+    if (_reactNative.Platform.isPad || _reactNative.Platform.isTV) {
+      if (modalPresentation) {
+        headerHeight = 56;
+      } else {
+        headerHeight = 50;
+      }
+    } else {
+      if (isLandscape) {
+        headerHeight = 32;
+      } else {
+        if (modalPresentation) {
+          headerHeight = 56;
+        } else {
+          headerHeight = 44;
+        }
+      }
+    }
+  } else if (_reactNative.Platform.OS === 'android') {
+    headerHeight = 56;
+  } else {
+    headerHeight = 64;
+  }
+
+  return headerHeight + statusBarHeight;
+}
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7OztBQUFBOztBQUllLFNBQVNBLHNCQUFULENBQ2JDLE1BRGEsRUFFYkMsaUJBRmEsRUFHYkMsZUFIYSxFQUlMO0VBQ1IsSUFBSUMsWUFBSjtFQUVBLElBQU1DLFdBQVcsR0FBR0osTUFBTSxDQUFDSyxLQUFQTCxHQUFlQSxNQUFNLENBQUNNLE1BQTFDOztFQUVBLElBQUlDLHNCQUFTQyxFQUFURCxLQUFnQixLQUFwQixFQUEyQjtJQUN6QixJQUFJQSxzQkFBU0UsS0FBVEYsSUFBa0JBLHNCQUFTRyxJQUEvQixFQUFxQztNQUNuQyxJQUFJVCxpQkFBSixFQUF1QjtRQUNyQkUsWUFBWSxHQUFHLEVBQWZBO01BQ0QsQ0FGRCxNQUVPO1FBQ0xBLFlBQVksR0FBRyxFQUFmQTtNQUNGO0lBQ0QsQ0FORCxNQU1PO01BQ0wsSUFBSUMsV0FBSixFQUFpQjtRQUNmRCxZQUFZLEdBQUcsRUFBZkE7TUFDRCxDQUZELE1BRU87UUFDTCxJQUFJRixpQkFBSixFQUF1QjtVQUNyQkUsWUFBWSxHQUFHLEVBQWZBO1FBQ0QsQ0FGRCxNQUVPO1VBQ0xBLFlBQVksR0FBRyxFQUFmQTtRQUNGO01BQ0Y7SUFDRjtFQUNELENBbEJELE1Ba0JPLElBQUlJLHNCQUFTQyxFQUFURCxLQUFnQixTQUFwQixFQUErQjtJQUNwQ0osWUFBWSxHQUFHLEVBQWZBO0VBQ0QsQ0FGTSxNQUVBO0lBQ0xBLFlBQVksR0FBRyxFQUFmQTtFQUNGOztFQUVBLE9BQU9BLFlBQVksR0FBR0QsZUFBdEI7QUFDRiIsIm5hbWVzIjpbImdldERlZmF1bHRIZWFkZXJIZWlnaHQiLCJsYXlvdXQiLCJtb2RhbFByZXNlbnRhdGlvbiIsInN0YXR1c0JhckhlaWdodCIsImhlYWRlckhlaWdodCIsImlzTGFuZHNjYXBlIiwid2lkdGgiLCJoZWlnaHQiLCJQbGF0Zm9ybSIsIk9TIiwiaXNQYWQiLCJpc1RWIl0sInNvdXJjZVJvb3QiOiIuLi8uLi8uLi9zcmMiLCJzb3VyY2VzIjpbIkhlYWRlci9nZXREZWZhdWx0SGVhZGVySGVpZ2h0LnRzeCJdLCJzb3VyY2VzQ29udGVudCI6W251bGxdfQ==

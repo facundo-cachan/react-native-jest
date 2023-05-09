@@ -1,0 +1,18 @@
+7ec73d097fa40d289c2a43f1e714c1d5
+"use strict";
+
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
+var _createClass2 = _interopRequireDefault(require("@babel/runtime/helpers/createClass"));
+
+var _classCallCheck2 = _interopRequireDefault(require("@babel/runtime/helpers/classCallCheck"));
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.PrivateValueStore = void 0;
+var PrivateValueStore = (0, _createClass2.default)(function PrivateValueStore() {
+  (0, _classCallCheck2.default)(this, PrivateValueStore);
+});
+exports.PrivateValueStore = PrivateValueStore;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7O0lBb0phQSxpQjs7O0FBWVpDIiwibmFtZXMiOlsiUHJpdmF0ZVZhbHVlU3RvcmUiLCJleHBvcnRzIl0sInNvdXJjZVJvb3QiOiIuLi8uLi9zcmMiLCJzb3VyY2VzIjpbInR5cGVzLnRzeCJdLCJzb3VyY2VzQ29udGVudCI6W251bGxdfQ==

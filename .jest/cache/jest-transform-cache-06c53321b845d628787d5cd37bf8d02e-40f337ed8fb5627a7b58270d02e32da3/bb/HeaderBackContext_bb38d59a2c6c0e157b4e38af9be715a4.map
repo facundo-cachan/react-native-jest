@@ -1,0 +1,1 @@
+{"version":3,"mappings":";;;;;;;AAAA;;AAAiD;EAAA;IAAAA;EAAA;AAAA;;AAEjD,IAAMC,iBAAiB,GAAG,8BACxB,mBADwB,EAExBC,SAFwB,CAA1B;AAGE,eAEaD,iBAFb;AAE8BE","names":["default","HeaderBackContext","undefined","exports"],"sourceRoot":"../../../src","sources":["Header/HeaderBackContext.tsx"],"sourcesContent":[null]}

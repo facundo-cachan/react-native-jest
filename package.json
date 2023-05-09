@@ -1,0 +1,82 @@
+{
+	"name": "rntest",
+	"version": "0.0.1",
+	"private": true,
+	"rnpm": {
+		"assets": [
+			"./assets/fonts/"
+		]
+	},
+	"lint-staged": {
+		"src/**/*.{json,md,html,js,jsx,ts,tsx}": [
+			"yarn lint",
+			"yarn prettier",
+			"yarn tsc:watch"
+		]
+	},
+	"scripts": {
+		"prepare": "husky install",
+		"clean:cache": "rm -rf $TMPDIR/metro-bundler-cache-* && rm -rf $TMPDIR/react-* && rm -rf $TMPDIR/metro-* && watchman watch-del-all",
+		"clean:ios": "cd ios/ && rm -rf build/ Pods/ *.xcworkspace Podfile.lock && cd ../",
+		"clean:android": "cd android && ./gradlew clean && cd ../",
+		"clean:project": "yarn clean:cache;yarn clean:ios;yarn clean:android && rm -rf node_modules package-lock.json *.lock",
+		"update:android": "cd android/ && ./gradlew :app:dependencies && cd ../",
+		"update:ios": "cd ios/ && pod install --repo-update && cd ../",
+		"android": "react-native run-android --verbose",
+		"ios": "react-native run-ios --verbose",
+		"start": "react-native start --reset-cache --verbose",
+		"tsc:watch": "tsc --project tsconfig.json",
+		"lint": "eslint --fix --ext .tsx,.ts src/**/*",
+		"test": "jest --colors --detectOpenHandles",
+		"test:coverage": "jest --colors --coverage",
+		"test:watch": "jest --colors --detectOpenHandles --watchAll",
+		"prettier": "prettier --write '**/*.{ts,tsx,js,json,md,yml,yaml,css,scss,html}'",
+		"bundle:ios": "npx react-native bundle --entry-file='index.ts' --dev=false --platform='ios' --bundle-output='./ios/main.jsbundle'",
+		"bundle:android": "npx react-native bundle --entry-file='index.ts' --dev=false --platform='ios' --bundle-output='android/app/src/main/assets/index.android.bundle'",
+		"build:android": "yarn clean:cache && yarn clean:android && yarn bundle:android && cd android && ./gradlew assembleRelease && cd ../"
+	},
+	"dependencies": {
+		"@react-navigation/native": "^6.1.6",
+		"@react-navigation/native-stack": "^6.9.12",
+		"react": "18.2.0",
+		"react-native": "0.71.7",
+		"react-native-safe-area-context": "^4.5.2",
+		"react-native-screens": "^3.20.0"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.21.8",
+		"@babel/preset-env": "^7.21.5",
+		"@babel/preset-typescript": "^7.21.5",
+		"@babel/runtime": "^7.21.5",
+		"@jest/globals": "^29.5.0",
+		"@react-native-community/eslint-config": "^3.2.0",
+		"@testing-library/jest-native": "^5.4.2",
+		"@testing-library/react": "^14.0.0",
+		"@testing-library/react-native": "^12.1.2",
+		"@tsconfig/react-native": "^3.0.0",
+		"@types/jest": "^29.5.1",
+		"@types/react": "^18.2.6",
+		"@types/react-native": "^0.71.6",
+		"@types/react-test-renderer": "^18.0.0",
+		"@typescript-eslint/eslint-plugin": "^5.59.5",
+		"@typescript-eslint/parser": "^5.59.5",
+		"babel-jest": "^29.5.0",
+		"babel-plugin-module-resolver": "^5.0.0",
+		"eslint": "^8.40.0",
+		"eslint-plugin-autofix": "^1.1.0",
+		"eslint-plugin-jest": "^27.2.1",
+		"eslint-plugin-simple-import-sort": "^10.0.0",
+		"eslint-plugin-sort-keys-fix": "^1.1.2",
+		"husky": "^8.0.3",
+		"jest": "^29.5.0",
+		"lint-staged": "^13.2.2",
+		"metro-react-native-babel-preset": "^0.76.3",
+		"prettier": "^2.8.8",
+		"react-error-boundary": "^4.0.4",
+		"react-native-dotenv": "^3.4.8",
+		"react-native-gesture-handler": "^2.9.0",
+		"react-native-reanimated": "^3.1.0",
+		"react-test-renderer": "^18.2.0",
+		"typescript": "5.0.4"
+	}
+}
