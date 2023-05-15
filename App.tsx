@@ -10,6 +10,6 @@
 
 import AppNavigation from '@navigation/'
 
-const App = () => (<AppNavigation />)
+const App = function () { return (<AppNavigation />) }
 
 export default App

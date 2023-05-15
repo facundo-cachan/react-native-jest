@@ -1,19 +1,25 @@
 module.exports = {
   verbose: true,
+  clearMocks: true,
   preset: 'react-native',
   moduleDirectories: [__dirname, 'node_modules', 'utils'],
-  setupFilesAfterEnv: ['./jest.setup.js'],
-  setupFiles: [],
-  globals: {
-    'ts-jest': {
-      isolatedModules: true,
-    },
-  },
-  clearMocks: true,
+  setupFilesAfterEnv: [
+    '<rootDir>/jest.env.js',
+    '@testing-library/jest-native/extend-expect'
+  ],
+  setupFiles: ['./jest.setup.js'],
   testRegex: '(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$',
+  moduleFileExtensions: [
+    'js',
+    'ts',
+    'tsx'
+  ],
+  transform: {
+    '^.+\\.(js)$': 'babel-jest',
+  },
   testPathIgnorePatterns: ['\\.snap$', '<rootDir>/node_modules/'],
   transformIgnorePatterns: [
-    'node_modules/(?!(jest-)?@?react-native|@react-native-community|@react-navigation|@fortawesome)',
+    '<rootDir>/node_modules/(?!@toolz/allow)|(?!(jest-)?@?react-native|@react-native-community|@react-navigation)',
   ],
   cacheDirectory: '.jest/cache',
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!**/node_modules/**'],
@@ -21,14 +27,18 @@ module.exports = {
   coveragePathIgnorePatterns: ['android', 'ios'],
   coverageThreshold: {
     global: {
-      branches: 50,
-      functions: 50,
-      lines: 50,
-      statements: 50,
+      branches: 0,
+      functions: 0,
+      lines: 0,
+      statements: 0,
     },
     './src/components/': {
-      branches: 40,
-      statements: 40,
+      branches: 80,
+      statements: 80,
+    },
+    './src/screens/': {
+      branches: 80,
+      statements: 80,
     },
   },
 };

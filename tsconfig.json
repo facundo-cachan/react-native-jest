@@ -45,12 +45,6 @@
       "@navigation": [
         "navigation/*"
       ],
-      "@providers": [
-        "providers/*"
-      ],
-      "@service": [
-        "service/*"
-      ],
       "@screens": [
         "screens/*"
       ],
@@ -62,9 +56,6 @@
       ],
       "@components": [
         "components/"
-      ],
-      "@layouts": [
-        "layouts/*"
       ]
     }
   },

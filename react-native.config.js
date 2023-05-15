@@ -5,5 +5,8 @@ module.exports = {
         ios: null
       }
     }
-  }
+  },
+  assets: [
+    './assets/fonts/'
+  ]
 }

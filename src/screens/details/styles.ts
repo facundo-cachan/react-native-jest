@@ -1,14 +1,14 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import { width } from '@utils/_dimensions'
+import { wp } from '@utils/_dimensions';
 
 const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     backgroundColor: '#c66',
     justifyContent: 'center',
-    width,
-  },
+    width: wp(80)
+  }
 });
 
 export default styles;

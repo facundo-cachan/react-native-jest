@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text component Render component 1`] = `
+<TextInput
+  accessibilityLabel="asdasdasd"
+  keyboardType="default"
+  placeholder="PlaceHolder Value"
+  style={
+    [
+      {
+        "fontFamily": "Cochin",
+      },
+      {
+        "backgroundColor": "red",
+      },
+    ]
+  }
+  value="Input Value"
+/>
+`;

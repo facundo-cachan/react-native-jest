@@ -1,6 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native';
 
-import { width } from '@utils/_dimensions'
+import { width } from '@utils/_dimensions';
 
 const styles = StyleSheet.create({
   container: {
@@ -8,8 +8,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#3cc6',
     justifyContent: 'center',
     marginTop: 100,
-    width,
-  },
+    width
+  }
 });
 
 export default styles;

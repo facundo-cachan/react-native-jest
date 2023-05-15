@@ -5,19 +5,19 @@ import { toJSON } from '../utils/customRender'
 
 import { Text } from '@components'
 
-const text: string = 'Demo Text'
+const text = 'Demo Text';
 
 describe('Text component', () => {
   beforeEach(() => {
-    toJSON(<Text>{text}</Text>)
-  })
+    toJSON(<Text.Default>{text}</Text.Default>);
+  });
   test('Render component', () => {
-    expect(screen).toMatchSnapshot()
-  })
+    expect(screen).toMatchSnapshot();
+  });
   test('Visiblity & text value by Role', () => {
-    const input = screen.getByText(text)
-    expect(input).toBeOnTheScreen()
-    expect(input).toBeVisible()
-    expect(input.props.children).toBe(text)
-  })
-})
+    const input = screen.getByText(text);
+    expect(input).toBeOnTheScreen();
+    expect(input).toBeVisible();
+    expect(input.props.children).toBe(text);
+  });
+});

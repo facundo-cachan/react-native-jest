@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component Render component 1`] = `
+<View
+  accessibilityLabel="Pressable Button"
+  accessibilityRole="button"
+  accessibilityState={
+    {
+      "busy": undefined,
+      "checked": undefined,
+      "disabled": undefined,
+      "expanded": undefined,
+      "selected": undefined,
+    }
+  }
+  accessibilityValue={
+    {
+      "max": undefined,
+      "min": undefined,
+      "now": undefined,
+      "text": undefined,
+    }
+  }
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    [
+      {
+        "backgroundColor": "red",
+        "borderColor": "green",
+        "borderWidth": 1,
+      },
+      {
+        "backgroundColor": "green",
+        "borderColor": "yellow",
+      },
+    ]
+  }
+>
+  <Text
+    style={
+      [
+        undefined,
+        {
+          "color": "#c55",
+        },
+      ]
+    }
+  >
+    Pressable Button Title
+  </Text>
+</View>
+`;

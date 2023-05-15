@@ -1,7 +1,10 @@
-import Text from './text'
+export * as Buttons from './buttons'
+export type { PressableProps } from './buttons/pressable'
+export type { Props as ButtonProps } from './buttons/types'
 
-import { Props as TextProps } from './text/interfaces'
+export * as Inputs from './inputs'
+export type { Props as InputProps } from './inputs/types'
 
-export type { TextProps }
-export { Text }
+export * as Text from './texts'
+export type { Props as TextProps } from './texts/types'
 
