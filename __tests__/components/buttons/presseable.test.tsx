@@ -35,7 +35,7 @@ describe('Button component', () => {
     expect(button).toBeVisible();
     expect(button.props.children).toBe(title);
   });
-  test.skip('Verifyng styles', () => {
+  test('Verifyng styles', () => {
     const { container, text }: PressableProps['style'] = props.style;
     const button = screen.getByRole('button');
     const buttonTitle = screen.getByText(title);
@@ -51,7 +51,7 @@ describe('Button component', () => {
     expect(textStyleApplied).toBe(text);
     expect(buttonStyleApplied).toBe(container);
   });
-  test.skip('Action', () => {
+  test('Action', () => {
     const btn = screen.getByRole('button');
     fireEvent(btn, 'press');
     waitFor(() => expect(handleClick).toHaveBeenCalledTimes(1));

@@ -1,4 +1,3 @@
-/* eslint-disable jest/no-disabled-tests */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { afterEach, beforeEach, describe, expect, test } from '@jest/globals';
 import { cleanup, screen, waitFor } from '@testing-library/react-native';
@@ -6,6 +5,10 @@ import { cleanup, screen, waitFor } from '@testing-library/react-native';
 import Demo from '@screens/demo';
 import { App, render, toJSON } from '../utils/customRender';
 
+const props = {
+  component: Demo,
+  name: 'Demo'
+};
 describe('Demo screen', () => {
   afterEach(() => {
     cleanup();
@@ -23,14 +26,11 @@ describe('Demo screen', () => {
     global.fetch = jest.fn().mockResolvedValue({
       json: () => Promise.resolve()
     });
-    render({
-      component: Demo,
-      name: 'Demo'
-    });
+    render(props);
   });
   describe('Render', () => {
-    test.skip('SnapShot Screen', () => {
-      toJSON(<App />);
+    test('SnapShot Screen', () => {
+      toJSON(<App {...props} />);
       expect(screen).toMatchSnapshot();
     });
     test('Render components & values on the screen', async () => {

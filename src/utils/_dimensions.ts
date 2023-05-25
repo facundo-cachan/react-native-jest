@@ -1,6 +1,7 @@
-import { Dimensions, PixelRatio } from 'react-native';
+/* eslint-disable lines-around-comment */
+import { Dimensions, PixelRatio } from 'react-native'
 
-const { height, width } = Dimensions.get('screen');
+const { height, width } = Dimensions.get('screen')
 
 /**
  * Converts provided width percentage to independent pixel (dp).
@@ -10,11 +11,11 @@ const { height, width } = Dimensions.get('screen');
  */
 const widthPercentageToDP = (widthPercent: string | number) => {
   // Parse string percentage input and convert it to number.
-  const elemWidth = typeof widthPercent === 'number' ? widthPercent : parseFloat(widthPercent);
+  const elemWidth = typeof widthPercent === 'number' ? widthPercent : parseFloat(widthPercent)
   // Use PixelRatio.roundToNearestPixel method in order to round the layout
   // size (dp) to the nearest one that correspons to an integer number of pixels.
-  return PixelRatio.roundToNearestPixel((width * elemWidth) / 100);
-};
+  return PixelRatio.roundToNearestPixel((width * elemWidth) / 100)
+}
 
 /**
  * Converts provided height percentage to independent pixel (dp).
@@ -24,17 +25,13 @@ const widthPercentageToDP = (widthPercent: string | number) => {
  */
 const heightPercentageToDP = (heightPercent: string | number) => {
   // Parse string percentage input and convert it to number.
-  const elemHeight = typeof heightPercent === 'number' ? heightPercent : parseFloat(heightPercent);
+  const elemHeight = typeof heightPercent === 'number' ? heightPercent : parseFloat(heightPercent)
 
   // Use PixelRatio.roundToNearestPixel method in order to round the layout
   // size (dp) to the nearest one that correspons to an integer number of pixels.
-  return PixelRatio.roundToNearestPixel((height * elemHeight) / 100);
-};
+  return PixelRatio.roundToNearestPixel((height * elemHeight) / 100)
+}
+const orientation = width < height ? 'portrait' : 'landscape'
 
-/*
-* Implement that piece of code to have orientation detection
+export { height, heightPercentageToDP as hp, orientation, width, widthPercentageToDP as wp }
 
-Dimensions.get('screen').width < Dimensions.get('screen').height ? 'portrait' : 'landscape'
-*/
-
-export { height, width, widthPercentageToDP as wp, heightPercentageToDP as hp };

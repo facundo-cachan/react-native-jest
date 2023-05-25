@@ -1,39 +1,39 @@
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import { render } from '@testing-library/react-native'
-import { ErrorBoundary } from 'react-error-boundary'
-import renderer from 'react-test-renderer'
-
-import DemoScreen from '@screens/Demo'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { render } from '@testing-library/react-native';
+import React from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import renderer from 'react-test-renderer';
 
 type Props = {
-  component?: JSX.Element;
-  name?: string;
+  component: JSX.Element;
+  name: string;
 };
 
 const logError = (error: Error, info: { componentStack: string }) => {
-  // eslint-disable-next-lineno-console, no-restricted-syntax, no-console, no-restricted-syntax
+  // Do something with the error, e.g. log to an external API
+  // eslint-disable-next-line no-restricted-syntax, no-console
   console.log(error, info);
 };
-const Stack = createNativeStackNavigator();
-
 const toJSON = (component: Props['component']) => {
   renderer.create(component).toJSON();
   return render(component);
 };
-const App = ({ component = DemoScreen, name = 'Demo' }: Props) => (
-  <NavigationContainer>
-    <Stack.Navigator
-      detachInactiveScreens={true}
-      screenOptions={{
-        headerShown: true,
-        unmountOnBlur: true
-      }}
-    >
-      <Stack.Screen component={component} name={name} options={{ headerShown: false }} />
-    </Stack.Navigator>
-  </NavigationContainer>
-);
+const App = (props: Props) => {
+  const Stack = createStackNavigator();
+  return (
+    <NavigationContainer>
+      <Stack.Navigator
+        detachInactiveScreens={true}
+        screenOptions={{
+          headerShown: true
+        }}
+      >
+        <Stack.Screen {...props} options={{ headerShown: false }} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 const renderNavigator = (props: Props) =>
   render(
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -43,6 +43,5 @@ const renderNavigator = (props: Props) =>
     </ErrorBoundary>
   );
 
-export * from '@testing-library/react-native'
+export * from '@testing-library/react-native';
 export { App, renderNavigator as render, toJSON };
-

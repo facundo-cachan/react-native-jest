@@ -1,9 +1,9 @@
-import { beforeEach, describe, expect, test } from '@jest/globals'
-import { screen } from '@testing-library/react-native'
+import { beforeEach, describe, expect, test } from '@jest/globals';
+import { screen } from '@testing-library/react-native';
 
-import { toJSON } from '../utils/customRender'
+import { toJSON } from '../utils/customRender';
 
-import { Text } from '@components'
+import { Text } from '@components';
 
 const text = 'Demo Text';
 

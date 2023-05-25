@@ -3,7 +3,7 @@ import { RouteProp } from '@react-navigation/native'
 import type { ParamListBase, StackNavigationState } from '@react-navigation/native'
 import type {
   NativeStackNavigationProp,
-  NativeStackScreenProps,
+  NativeStackScreenProps
 } from '@react-navigation/native-stack'
 
 
@@ -19,8 +19,8 @@ export type Screen = {
   screen: StackNavigationState<ParamListBase>
   title?: string
 }
-export type ScreenProps = NativeStackScreenProps<RootStackParamList>;
+export type ScreenProps = NativeStackScreenProps<RootStackParamList>
 export type ScreenPropsDetails = {
-  navigation: NativeStackNavigationProp<RootStackParamList, 'Details'>;
-  route: RouteProp<RootStackParamList, 'Item'>;
-};
+  navigation: NativeStackNavigationProp<RootStackParamList, 'Details'>
+  route: RouteProp<RootStackParamList, 'Item'>
+}
